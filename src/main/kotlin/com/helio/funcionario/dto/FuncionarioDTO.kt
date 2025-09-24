@@ -1,10 +1,11 @@
 package com.helio.funcionario.dto
 
+import java.time.LocalDate
+
 data class FuncionarioDTO(
-    val id: Long,
+    val idFunc: Long,
     val nome: String,
-    val dataNascimento: String,
-    val salario: Double,
+    val dataNascimento: LocalDate,
     val genero: String,
     val pronomes: String,
     val raca: String,
