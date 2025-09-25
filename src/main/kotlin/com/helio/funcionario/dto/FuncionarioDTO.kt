@@ -12,4 +12,5 @@ data class FuncionarioDTO(
     val estadoCivil: String,
     val dependentesNum: Int,
     val ativo: Boolean,
+    val contato: ContatoDTO? = null,
 )

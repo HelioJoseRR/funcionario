@@ -9,7 +9,7 @@ data class FuncionarioEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_func")
-    var idFunc: Long,
+    var idFunc: Long  = 0,
     @Column(name = "nome")
     var nome: String,
     @Column(name = "data_nascimento")
@@ -27,15 +27,6 @@ data class FuncionarioEntity(
     @Column(name = "ativo")
     var ativo: Boolean,
 ) {
-    init {
-        this.idFunc = idFunc
-        this.nome = nome
-        this.dataNascimento = dataNascimento
-        this.genero = genero
-        this.pronomes = pronomes
-        this.raca = raca
-        this.estadoCivil = estadoCivil
-        this.dependentesNum = dependentesNum
-        this.ativo = ativo
-    }
+    @OneToOne(mappedBy = "funcionario", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var contato: ContatoEntity? = null
 }
